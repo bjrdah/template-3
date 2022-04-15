@@ -30,6 +30,7 @@ a{
     padding-right: 15px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 /* small media */
 @media (min-width:768px){
@@ -87,7 +88,7 @@ a{
         margin: auto;
     }
 }
-.header .b-container .links li a{
+.header .b-container .links  >li > a{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,12 +101,12 @@ a{
     overflow: hidden;
 }
 @media(max-width:767px){
-    .header .b-container .links li a{
+    .header .b-container .links >li >a{
         padding: 0 15px;
         font-size: 14px;        
     }
 }
-.header .b-container .links li a::before{
+.header .b-container .links > li >a::before{
     content: "";
     position: absolute;
     width: 100%;
@@ -115,17 +116,83 @@ a{
     left: -100%;
     transition: var(--main-trans);
 }
-.header .b-container .links li a:hover  {
+.header .b-container .links > li > a:hover  {
     background-color: #fafafa;
     color: var(--main-color);
 }
-.header .b-container .links li a:hover::before  {
+.header .b-container .links >  li > a:hover::before  {
     left: 0;
+}
+
+.mega{
+    position: absolute;
+    background-color:white;
+    width: 100%;
+    left: 0;
+    padding: 30px;
+    border-bottom: 3px solid var(--main-color);
+    display: flex;
+    justify-content: space-around;
+    gap: 2px;
+    z-index: -1;
+    top: calc(100% + 60px);
+    opacity: 0;
+    transition: top .6s , opacity var(--main-trans);
+}
+@media(max-width:767px){
+ .mega{
+     flex-direction: column;
+ }
+}
+.other:hover .mega{
+    top: calc(100%  + 3px);
+    opacity: 1;
+    z-index: 100;
+}
+
+.mega .mg-link{
+    min-width: 250px;
+} 
+.mega .mg-link li{
+    position: relative;
+}
+.mega .mg-link li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ececec;
+    z-index: -1;
+    transition: var(--main-trans);
+}
+.mega .mg-link li:hover::before{
+    width: 100%;
+}
+.mega .mg-link a{
+    color:var(--main-color);
+    padding: 15px;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #e3e3e3;
+}
+.mega .mg-link a i{
+    margin-right: 15px;
+}
+.mega .img img{
+    max-width:100%;
+    
+}
+@media(max-width:991px){
+    .mega .img{
+        display: none;
+    }   
 }
 /* end header */
 /* start landong */
 .landing{
-    position: relative;
+    position: relative;    
 }
 .landing::before{
     content: "";
@@ -146,6 +213,11 @@ a{
     flex-wrap: wrap;
     padding-bottom: 100px;
 }
+@media(max-width:767px){
+    .landing .b-container{
+    min-height: calc(100vh - 112px);
+    }
+}
 .landing .text{
     flex: 1;
     /* width: calc(100% - 600px); */
@@ -161,9 +233,20 @@ a{
     margin: 5px 0 0;
     color: #777;
 }
+@media(max-width:767px){
+    .landing .text h1{
+        font-size: 28px; 
+    }
+.landing .text p{
+    font-size: 18px;
+}
+}
+
 .landing img{
+    position: relative;
     width: 600px;
     max-width: 100%;
+    animation: up-down 5s linear infinite;
 }
 .landing .go-down{
     display: flex;
@@ -171,10 +254,35 @@ a{
     margin-top: -40px;
     transition: var(--main-trans);
 }
-.landing .go-down:hover{
+.landing .go-down i{
+    position: relative;
+    color: var(--main-color);
+    animation: bouncing 1.5s infinite;
+}
+.landing .go-down i:hover{
     color: var(--main-alt);
 }
-.landing .go-down i{
+#a7rb{
     color: var(--main-color);
 }
+
 /* end landong */
+
+/* start animation */
+@keyframes up-down{
+    0%,100%{
+        top: 0;
+    }
+    50%{
+        top:-30px;
+    }
+}
+@keyframes bouncing{
+    0%, 20%, 50%, 80%, 100%{
+        top: 0;
+    }
+    40%, 60%{
+        top: -20px;
+    }
+}
+/* end animation */
