@@ -7,28 +7,32 @@
     <title>Document</title>
 </head>
 <body>
-<div class="div"></div>
+<div class="div">
+    <img src="images/avatar-03.png" alt="">
+    <div class="one">fdsjfqdksjfhdsfjhdskjqfhdjkfkhdjgdgfdsgfdgfdgfdgsfdgfdgfdgdgfdsgfdgsfdggfdsgfgfdgfdgfdgsfgfdkqfhdsfjkhdfkjqshfjkhfjdhfqjkhfdjkfhdjkqfhdjkfhdjkfhdsjqfhdjksfhdjfhqkjfhdjkfhd</div>
+    <div class="two">fdfkdsqfhdsjkfhd</div>
 </div>
-    <style>
-        .div{
-            width: 200px;
-            height:  20px;
-            margin :auto;
-            background-color: red;
-        }
-        .div:hover{
-            animation: anim 1s;
 
-        }
-        @keyframes anim{
-            0%,50%{
-                background-color:black;
-                width:50px;
-            }        
-            100%{
-                width: 100%;
-            }
-        }
+    <style>
+   
+    .div{
+        
+        background-color: red;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    img{
+        max-width: 450px;
+    }
+    .one{
+        background-color: blue;
+        flex: 1;
+    }
+    .two{
+        background-color: black;
+    }
+   
+    
     </style>
 </body>
 </html>
